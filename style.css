@@ -1,0 +1,39 @@
+/* ****Reset**** */
+
+*, 
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* **************Reusable Components************************ */
+
+:root {
+    font-size: 62.5%;
+
+    /* custom properties** */
+    --color-primary: #730039;
+    --color-primary-m-light: hsla(330, 100%, 23%, 0.55);
+    --color-primary-m-dark: hsla(330, 100%, 23%, 0.85);
+
+    --color-secondary: #ffc513;
+    --color-secondary-m-light: hsla(45, 100%, 54%, 0.55);
+    --color-secondary-m-dark: hsla(45, 100%, 54%, 0.85);
+
+    --color-tertiary: #ff724c;
+    --color-tertiary-m-light: hsla(13, 100%, 65%, 0.55);
+    --color-tertiary-m-dark: hsla(13, 100%, 65%, 0.85);
+    
+    --color-quaternary: #f6eedf;
+    --color-quaternary-m-light: hsla(39, 56%, 92%, 0.6);
+    --color-quaternary-m-dark: hsla(39, 56%, 92%, 0.85);
+
+    transition-duration: 0.3s;
+
+    --font-size-title: calc(2rem + 2vw);
+
+    --padding-section: 8vh 3vw;
+
+}
