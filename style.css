@@ -30,7 +30,7 @@
     --color-quaternary-m-light: hsla(39, 56%, 92%, 0.6);
     --color-quaternary-m-dark: hsla(39, 56%, 92%, 0.85);
 
-    transition-duration: 0.3s;
+    --transition-duration: 0.3s;
 
     --font-size-title: calc(2rem + 2vw);
 
@@ -54,12 +54,303 @@ body {
 
 }
 
+a:link,
+a:visited {
+    color: var(--color-quaternary);
+    text-decoration: none;
+    font-size: calc(0.5rem + 1vw);
+    padding: 1rem 2rem;
+    border-radius: 0.3rem;
+    position: relative;
+    transition: all var(--transition-duration) cubic-bezier(1, 0, 0, 1);
+    z-index: 1;
+}
+
+p {
+    color: white;
+    font-size: calc(irem + 1vw);
+    font-weight: 300;
+}
+
+li {
+    list-style: none;
+    margin-bottom: 4rem;
+
+}
+
+i {
+    font-size: var(--font-size-title);
+    color: var(--color-secondary);
+}
+
+
 /* ***************Main Content*************************** */
 
 header#header {
-    background-color: var(--color-primary);
     grid-column: container-start / container-end;
+    background: linear-gradient(var(--color-primary-m-light), 
+    var(--color-primary-m-light)), url(./img/hero.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
+
+.header__main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.header__main-nav input[type="checkbox"] {
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+    height: 5rem;
+    width: 5rem;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.header__main-nav--hamburger {
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+    height: 5rem;
+    width: 5rem;
+    padding: 1rem;
+    background-color: var(--color-secondary);
+    z-index: 2;
+
+    display: grid;
+    place-items: center;
+
+    animation: main-nav 2s;
+}
+
+@keyframes main-nav {
+    0% {
+        transform: translateX(150rem) rotate(1800deg);
+        opacity(0);
+    }
+
+    100% {
+        transform: translateX(0) rotate(0) opacity(1);
+    }
+}
+
+.header__main-nav--hamburger > div {
+    position: relative;
+    height: 0.3rem;
+    width: 100%;
+    background-color: var(--color-quaternary);
+    
+    display: grid;
+    place-items: center;
+    transition: all var(--transition-duration) ease-in-out;
+}
+
+.header__main-nav--hamburger > div::before,
+.header__main-nav--hamburger > div::after {
+    content: '';
+    position: absolute;
+    top: -1rem;
+    width: 60%;
+    height: inherit;
+    background-color: inherit;
+    z-index: 2;
+}
+
+.header__main-nav--hamburger > div::before {
+    left: 0;
+    
+}
+
+.header__main-nav--hamburger > div::after {
+    top: 1rem;
+    right: 0;
+}
+
+/* Rotating the menu  */
+
+.header__main-nav input[type="checkbox"]:checked 
++ .header__main-nav--hamburger > div {
+    transform: rotate(135deg);
+}
+
+.header__main-nav input[type="checkbox"]:checked 
++ .header__main-nav--hamburger > div::before {
+    left: 0;
+    top: 0;
+    width: 100%;
+    transform: rotate(270deg);
+}
+
+.header__main-nav input[type="checkbox"]:checked 
++ .header__main-nav--hamburger > div::after {
+    opacity: 0;
+}
+
+.header__main-nav input[type="checkbox"]:checked:hover  
++ .header__main-nav--hamburger > div {
+    transform: rotate(405deg);
+}
+
+/* ****** links menu ********* */
+
+.header__main-nav--menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+    overflow: hidden;
+
+    display: grid;
+    place-items: center;
+}
+
+.header__main-nav--menu > div {
+    background-color: var(--color-secondary-m-dark);
+    height: 200%;
+    width: 200%;
+
+    display: grid;
+    place-items: center;
+    transform: scaleX(0);
+    transition: all 0.5s ease-in-out;
+}
+
+.header__main-nav--menu > div > div { 
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* ***********Displaying menu when checked*************** */
+
+.header__main-nav input[type="checkbox"]:checked ~ .header__main-nav--menu {
+    visibility: visible;
+    
+}
+
+.header__main-nav input[type="checkbox"]:checked ~ .header__main-nav--menu > div  {
+    transform: scaleX(1);
+    /* transition-duration: 0.5s; */
+}
+
+.header__main-nav input[type="checkbox"]:checked ~ 
+ .header__main-nav--menu >
+ div > div {
+    opacity: 1;
+}
+
+.header__main-nav--menu ul li a:link,
+.header__main-nav--menu ul li a:visited {
+    position: relative;
+    z-index: 5;
+    font-size: calc(1.5rem + 0.5vw);
+}
+
+.header__main-nav--menu ul li a:link::before,
+.header__main-nav--menu ul li a:visited::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transform: scaleY(0);
+    background-color: var(--color-primary-m-dark);
+    transition: transform var(--transition-duration) ease-in-out;
+}
+
+.header__main-nav--menu
+ ul
+ li
+ a:hover::before,
+ .header__main-nav--menu
+ ul
+ li
+ a:active::before {
+     transform: scaleY(1);
+ }
+
+ /* ***** the rest of the header section ********** */
+
+ .header__logo__content {
+     display: grid;
+     grid-template-columns: 1fr minmax(30rem, 1fr) 1fr;
+     grid-template-rows: min-content;
+     height: 90%;
+     justify-items: center;
+}
+
+.header__logo__content--logo {
+    grid-column: 2 / 3;
+    letter-spacing: 0.2rem;
+}
+
+.header__logo__content--logo span {
+    color: var(--color-tertiary);
+    font-size: 3rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.header__logo__content--content {
+    grid-column: 1 / -1;
+    align-self: center;
+}
+
+.header__logo__content--content__title {
+    font-size: calc(4rem + 4vw);
+    font-weight: 300;
+    color: white;
+    text-transform: uppercase;
+    padding: 0 2rem 0 var(--font-size-title);
+}
+
+.header__logo__content--content__para {
+    font-size: calc(1rem + 2vw);
+    font-weight: 500;
+    padding: 2vh 2rem 6vh var(--font-size-title);
+}
+
+.header__logo__content--content__link:link,
+.header__logo__content--content__link:visited {
+    margin-left: var(--font-size-title);
+    border: 0.2rem solid var(--color-tertiary);
+}
+.header__logo__content--content__link:link::before,
+.header__logo__content--content__link:visited::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-tertiary);
+    transform: scaleX(0);
+    transition: all 0.45s cubic-bezier(1, 0, 0, 1);
+    z-index: -1;
+}
+
+.header__logo__content--content__link:hover::before,
+.header__logo__content--content__link:active::before {
+    transform: scaleX(1);
+}
+
+
+
+
+
+
+
 
 section#booking-content {
     background-color: var(--color-secondary);
@@ -132,6 +423,8 @@ footer#footer {
     grid-column: container-start / container-end;
     height: 200px;
 }
+
+/* ***************************** Header Styling ************************** */
 
 
 
