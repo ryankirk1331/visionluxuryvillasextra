@@ -453,12 +453,22 @@ section#booking-date {
     border-color: transparent transparent var(--color-secondary) transparent;
 }
 
-.booking-date__schedule--arrival > div p:nth-last-of-type(2),
-.booking-date__schedule--departure > div p:nth-last-of-type(2),
-.booking-date__schedule--guests > div p:nth-last-of-type(2) {
+.booking-date__schedule--arrival > div p:nth-of-type(2),
+.booking-date__schedule--departure > div p:nth-of-type(2),
+.booking-date__schedule--guests > div p:nth-of-type(1) {
     font-size: 3rem;
     font-weight: 700;
 }
+
+.booking-date__schedule--guests > div button {
+    font-size: 2rem;
+    font-weight: 300;
+    background-color: var(--color-secondary);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
 
 .booking-date__contact {
     align-self: end;
