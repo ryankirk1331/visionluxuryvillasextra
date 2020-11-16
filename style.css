@@ -460,6 +460,24 @@ section#booking-date {
     font-weight: 700;
 }
 
+.booking-date__schedule--arrival > div button {
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+.booking-date__schedule--arrival > div > div button, 
+.booking-date__schedule--departure > div > div button {
+    border: none;
+    background-color: var(--color-secondary);
+    color: white;
+    font-size: 2rem;
+    margin: 0;
+    
+    cursor: pointer;
+}
+
 .booking-date__schedule--guests > div button {
     font-size: 2rem;
     font-weight: 300;
@@ -499,18 +517,92 @@ section#booking-date {
     color: var(--color-primary);
 }
 
-     section#villas {
-    background-color: var(--color-primary);
+section#villas {
     grid-column: container-start / container-end;
-    height: 400px;
+    background-color: var(--color-primary);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    /* grid-gap: 2rem; */
 }
 
-section#motto {
+div[class^='villas'] {
+    padding: 2rem;
+    /* background-position: center;
+    background-size: cover; */
+    transition: transform var(--transition-duration) ease-in-out;
+}
+
+div[class^='villas']:hover,
+div[class^='villas']:active {
+    transform: scale(1.05);
+}
+
+div[class^='villas'] h2[class^='villas'] {
+    font-size: var(--font-size-title);
+    padding: 0 2rem 1rem 0;
+    font-weight: 400;
+    color: white;
+    text-transform: uppercase;
+}
+
+div[class^='villas'] p[class^='villas'] {
+    font-size: 2rem;
+    margin: 1.5rem 0 4rem 0;
+    color: white;
+    font-weight: 500;
+}
+
+div[class^='villas'] a[class^='villas']:link, 
+div[class^='villas'] a[class^='villas']:visited {
+    display: inline-block;
+    margin-bottom: 2rem;
+    background-color: white;
+    color: var(--color-primary);
+    z-index: 2;
+    overflow: hidden;
+}
+
+div[class^='villas'] a[class^='villas']:hover, 
+div[class^='villas'] a[class^='villas']:active {
+    color: white;
+}
+
+div[class^='villas'] a[class^='villas']:link::before, 
+div[class^='villas'] a[class^='villas']:visited::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 0%;
+    z-index: -1;
+    background-color: var(--color-secondary);
+    transition: height var(--transition-duration) ease-in-out;
+
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+div[class^='villas']:nth-child(n) a[class^='villas']:link::before, 
+div[class^='villas']:nth-child(n) a[class^='villas']:visited::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+div[class^='villas']:nth-child(2n) a[class^='villas']:link::before, 
+div[class^='villas']:nth-child(2n) a[class^='villas']:visited::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+div[class^='villas'] a[class^='villas']:hover::before, 
+div[class^='villas'] a[class^='villas']:active::before {
+    height: 400%;
+}
+
+
+
+     section#motto {
     background-color: var(--color-secondary);
     grid-column: container-start / container-end;
-    height: 400px;
-}
-
+    height: 400px;}
 section#events-content {
     background-color: var(--color-tertiary);
     grid-column: container-start / col-end 9;

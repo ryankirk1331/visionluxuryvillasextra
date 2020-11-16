@@ -7,8 +7,8 @@
     <script
       src="https://kit.fontawesome.com/bb8fd4baf4.js" crossorigin="anonymous">
     </script>
-    <link 
-    href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,600;0,700;0,900;1,200&display=swap" 
+    <link
+    href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,600;0,700;0,900;1,200&display=swap"
     rel="stylesheet">
     <link  rel="shortcut icon" type="image/svg" href="img/hotel-solid.svg">
     <link rel="stylesheet" href="style.css">
@@ -83,18 +83,24 @@
             <div class="booking-date__schedule--arrival">
                 <h5>Arrival</h5>
                 <div>
-                    <p>May</p>
-                    <p>09</p>
-                    <p>&#65088;</p>
+                        <p><span id="arrMonth">May</span></p>
+                        <p><span id="displayArr">09</span></p>
+                    <div>
+                        <button id="prevArrow">&#8249;</button>
+                        <button id="nextArrow">&#8250;</button>
+                      </div>
                 </div>
             </div>
             
             <div class="booking-date__schedule--departure">
                 <h5>Departure</h5>
                 <div>
-                    <p>May</p>
-                    <p>23</p>
-                    <p>&#65088;</p>
+                        <p>May</p>
+                        <p><span id="displayDep">23</span></p>
+                    <div>
+                        <button id="prevArrowDep">&#8249;</button>
+                        <button id="nextArrowDep">&#8250;</button>
+                    </div>
                 </div>
             </div>
             
@@ -120,7 +126,53 @@
     </section>
 
     <section id="villas">
-        Villas
+        <div class="villas__villa-1">
+            <h2 class="villas__villa-1--title">Standard Villa</h2>
+            <p class="villas__villa-1--para">Lorem ipsum dolor sit amet 
+                consectetur adipisicing elit. Maxime, necessitatibus? Cupiditate 
+                veritatis distinctio quidem eveniet!</p>
+            <a href="#" class="villas__villa-1--link">Starting at $200.00</a>
+        </div>
+        
+        <div class="villas__villa-2">
+            <h2 class="villas__villa-2--title">Superior Villa</h2>
+            <p class="villas__villa-2--para">Lorem ipsum dolor sit amet 
+                consectetur adipisicing elit. Maxime, necessitatibus? Cupiditate 
+                veritatis distinctio quidem eveniet!</p>
+            <a href="#" class="villas__villa-2--link">Starting at $350.00</a>
+        </div>
+        
+        <div class="villas__villa-3">
+            <h2 class="villas__villa-3--title">Infinity Villa</h2>
+            <p class="villas__villa-3--para">Lorem ipsum dolor sit amet 
+                consectetur adipisicing elit. Maxime, necessitatibus? Cupiditate 
+                veritatis distinctio quidem eveniet!</p>
+            <a href="#" class="villas__villa-3--link">Starting at $700.00</a>
+        </div>
+        
+        <div class="villas__villa-4">
+            <h2 class="villas__villa-4--title">Ultra Villa</h2>
+            <p class="villas__villa-4--para">Lorem ipsum dolor sit amet 
+                consectetur adipisicing elit. Maxime, necessitatibus? Cupiditate 
+                veritatis distinctio quidem eveniet!</p>
+            <a href="#" class="villas__villa-4--link">Starting at $1100.00</a>
+        </div>
+
+        <div class="villas__villa-5">
+            <h2 class="villas__villa-5--title">Galactic Villa</h2>
+            <p class="villas__villa-5--para">Lorem ipsum dolor sit amet 
+                consectetur adipisicing elit. Maxime, necessitatibus? Cupiditate 
+                veritatis distinctio quidem eveniet!</p>
+            <a href="#" class="villas__villa-5--link">Starting at $1300.00</a>
+        </div>
+        
+        <div class="villas__villa-6">
+            <h2 class="villas__villa-6--title">Cosmic Villa</h2>
+            <p class="villas__villa-6--para">Lorem ipsum dolor sit amet 
+                consectetur adipisicing elit. Maxime, necessitatibus? Cupiditate 
+                veritatis distinctio quidem eveniet!</p>
+            <a href="#" class="villas__villa-6--link">Starting at $1500.00</a>
+        </div>
     </section>
 
     <section id="motto">
