@@ -627,21 +627,116 @@ div[class^='villas'] a[class^='villas']:active::before {
 }
 
 
-
 section#motto {
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
     grid-column: container-start / container-end;
-    height: 400px;}
-section#events-content {
-    background-color: var(--color-tertiary);
-    grid-column: container-start / col-end 9;
-    height: 400px;
+    padding: 10vh 3vw;
 }
 
+div.motto__content {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.motto__content--title {
+    font-size: var(--font-size-title);
+    padding: 0 2rem 0 1rem;
+    font-weight: 300;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.motto__content--title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 45%;
+    height: 0.2rem;
+    width: 10%;
+    background-color: white;
+}
+
+section#events-content {
+    grid-column: container-start / col-end 9;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+section#events-content > div {
+    padding: var(--padding-section);
+    display: grid;
+
+    grid-template-areas: 
+        "title"
+        "para";
+    grid-row-gap: 4vh;
+    align-items: center;
+    justify-items: start;
+}
+
+/* section#events-content > div:first-child,
+section#events-content > div:last-child {
+    /* background-size: cover;
+    background-position: center; */
+ /* } */
+
+section#events-content > div:first-child {
+    background: linear-gradient(
+        var(--color-tertiary-m-light),
+        var(--color-tertiary-m-light)), 
+        url(./img/Events/beach-party.jpg);
+    background-size: cover;
+    background-position: center;
+    border-left: solid 0.2rem var(--color-tertiary);
+}
+
+section#events-content > div:last-child {
+    background: linear-gradient(
+        var(--color-tertiary-m-light),
+        var(--color-tertiary-m-light)), 
+        url(./img/Events/culture-discovery.jpg);
+    background-size: cover;
+    background-position: center;
+    border-left: solid 0.2rem var(--color-tertiary);
+}
+
+
+section#events-content > div h2[class*=title] {
+    grid-area: title;
+    font-size: var(--font-size-title);
+    font-weight: 400;
+    color: white;
+}
+
+section#events-content > div p[class*=para] {
+    grid-area: para;
+    color: white;
+    font-weight: 500;
+}
+
+
 section#events-text {
-    background-color: var(--color-primary);
+    background-color: var(--color-tertiary);
     grid-column: col-start 10 / center-end;
-    height: 400px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    place-items: center;
+}
+
+.events-text__content {
+    transform: rotate(90deg);
+}
+
+.events-text__content--title {
+    font-size: var(--font-size-title);
+    font-weight: 500;
+    color: white;
+    letter-spacing: 0.2rem;
 }
 
 section#gallery-text {
@@ -746,12 +841,28 @@ footer#footer {
         grid-template-columns: min-content;
     }
 
+    section#events-text {
+        display: none;
+    }
+
     div[class^='villas'] p[class^='villas'] {
         margin: 1.5rem 0 4rem 0;
     }
 
+    section#events-content {
+        grid-column: center-start / center-end;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    }
+
+    section#events-content > div:first-child,
+    section#events-content > div:last-child {
+        border: none;
+    }
+
     .booking-content--para,
-    div[class^='villas'] p[class^='villas'] {
+    div[class^='villas'] p[class^='villas'],
+    .motto__content--para,
+    section#events-content > div p[class*=para] {
         font-size: 1.5rem;
     }
 }
