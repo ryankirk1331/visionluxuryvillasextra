@@ -8,10 +8,18 @@ const nextArrowDep = document.querySelector('#nextArrowDep');
 const prevArrowDep = document.querySelector('#prevArrowDep');
 const displayDep = document.querySelector('#displayDep');
 // const arrMonth = document.querySelector('#arrMonth');
+// ********************gallery carousel *************************//
+const list = document.querySelector('.gallery-carousel__img-container--list');
+const imgs = Array.from(list.children);
+const nextButton = document.querySelector('.gallery-carousel__btn--right');
+const prevButton = document.querySelector('.gallery-carousel__btn--left');
+const carouselNav = document.querySelector('.gallery-carousel__nav');
+const dots = Array.from(carouselNav.children);
+
 
 // ************************ Guests Clicker *********************************
 
-let numGuests = 1;
+let numGuests = 1
 let maxGuests = 5;
 let minGuests = 0;
 
@@ -64,10 +72,22 @@ prevArrowDep.addEventListener('click', function() {
     displayDep.textContent = depDate;
 });
 
+// ************************ gallery carousel **************************
+// *****img width*******
 
+const imgWidth = imgs[0].getBoundingClientRect().width;
 
+// ********ARRANGE IMGS**********
 
+// function setImgPosition(img, index) {
+//     img.style.left = imgWidth * index + 'px';
+// }
 
+const setImgPosition = (img, index) => {
+    img.style.left = imgWidth * index + 'px';
+}
+
+imgs.forEach(setImgPosition);
 
     
    
