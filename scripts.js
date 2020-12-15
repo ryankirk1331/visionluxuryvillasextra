@@ -89,6 +89,14 @@ const setImgPosition = (img, index) => {
 
 imgs.forEach(setImgPosition);
 
-    
+nextButton.addEventListener('click', (e) => {
+    const currentImg = list.querySelector(".current--img");
+    const nextImg = currentImg.nextElementSibling;
+    const distToMove = nextImg.style.left;
+    list.style.transform = "translateX(-" + distToMove + ")";
+    currentImg.classList.remove('current--img');
+    nextImg.classList.add('current--img');
+
+});
    
    
