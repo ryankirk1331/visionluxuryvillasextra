@@ -89,14 +89,48 @@ const setImgPosition = (img, index) => {
 
 imgs.forEach(setImgPosition);
 
+const moveToImg = (list, currentImg, targetImg) => {
+    list.style.transform = "translateX(-" + targetImg.style.left + ")";
+    currentImg.classList.remove('current--img');
+    targetImg.classList.add('current--img');
+}
+
+const updateDots = (currentDot, targetDot) => {
+    currentDot.classList.remove('current--img');
+    targetDot.classList.add('current--img');
+}
+
 nextButton.addEventListener('click', (e) => {
     const currentImg = list.querySelector(".current--img");
     const nextImg = currentImg.nextElementSibling;
-    const distToMove = nextImg.style.left;
-    list.style.transform = "translateX(-" + distToMove + ")";
-    currentImg.classList.remove('current--img');
-    nextImg.classList.add('current--img');
-
+    const currentDot = carouselNav.querySelector('.current--img');
+    const nextDot = currentDot.nextElementSibling;
+    moveToImg(list, currentImg, nextImg);
+    updateDots(currentDot, nextDot);
 });
+
+prevButton.addEventListener('click', (e) => {
+    const currentImg = list.querySelector(".current--img");
+    const prevImg = currentImg.previousElementSibling;
+    const currentDot = carouselNav.querySelector('.current--img');
+    const prevDot = currentDot.previousElementSibling;
+    moveToImg(list, currentImg, prevImg);
+    updateDots(currentDot, prevDot);
+});
+
+carouselNav.addEventListener('click', (e) => {
+    const targetDot = e.target.closest("button");
+    if (!targetDot) return;
+    const currentImg = list.querySelector('.current--img');
+    const currentDot = carouselNav.querySelector('.current--img');
+    const targetIndex = dots.findIndex((dot) => dot === targetDot);
+    const targetImg = imgs[targetIndex];
+
+    moveToImg(list, currentImg, targetImg);
+    updateDots(currentDot, targetDot)
+});
+
+
+
    
    
