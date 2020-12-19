@@ -130,7 +130,7 @@ prevButton.addEventListener('click', (e) => {
     const prevImg = currentImg.previousElementSibling;
     const currentDot = carouselNav.querySelector('.current--img');
     const prevDot = currentDot.previousElementSibling;
-    const prevIndex = imgs.findIndex((img) => img === preImg);
+    const prevIndex = imgs.findIndex((img) => img === prevImg);
     moveToImg(list, currentImg, prevImg);
     updateDots(currentDot, prevDot);
     hideShowArrows(imgs, prevButton, nextButton, prevIndex)
